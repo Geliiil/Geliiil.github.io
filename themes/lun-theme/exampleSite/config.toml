@@ -1,0 +1,16 @@
+baseURL = "https://example.com"
+title = "Hugo template"
+themes = "lun-theme"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about"
+    weight = 20
