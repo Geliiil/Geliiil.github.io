@@ -1,0 +1,43 @@
+/*Title*/
+h1{
+    margin-bottom: 0;
+}
+
+/*tags-list*/
+.tag-list {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding-top: 20px;
+}
+
+.tag-items {
+    list-style-type: none;
+}
+
+.tag  {
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    color: black;
+    font-size: medium;
+}
+
+.tag:hover{
+    background-color: rgb(48, 92, 92);
+    color: white;
+}
+
+@media screen and (max-width: 48rem) {
+  .tag-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding-top: 20px;
+}
+}

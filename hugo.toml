@@ -16,6 +16,12 @@ theme = "lun-theme"
     url = "/about"
     weight = 20
 
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags"
+    weight = 30
+
   [[menu.social]]
   identifier = "github"
   name = "GitHub"
@@ -29,3 +35,7 @@ theme = "lun-theme"
 avatar = "/image/IMG_5888.jpg"
 name ="Geliiil"
 description = "Hello, 我是Geliiil"
+
+
+[taxonomies]
+tag = "tags"

@@ -14,19 +14,23 @@ time {
     color: grey;
 }
 
-a {
+
+.read-more {
     text-decoration: none;
     color: dimgrey;
     font-weight: bold;
+    padding-bottom: 1rem;
+    font-size: medium;
 }
 
-a:hover {
+.read-more:hover {
     color:dodgerblue;
 }
 
 p {
     margin-bottom: 0;
 }
+
 
 .post-snippet {
     display: flex;
@@ -71,5 +75,6 @@ p {
   }
   .post-snippet{
     padding-left: 1rem ;
+    padding-bottom: 1rem;
   }
 }

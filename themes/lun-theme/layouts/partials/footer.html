@@ -1,9 +1,11 @@
 
 </main>
-	
-<footer>
-	<p>&copy;{{ dateFormat "2006" now }} {{ .Site.Title }}</p>
-</footer>
+<link rel="stylesheet" href="{{ `css/footer.css` | relURL }}" type="text/css" media="all" />
+<div class="footer-container">
+	<footer>
+		<p>&copy;{{ dateFormat "2006" now }} {{ .Site.Title }}</p>
+	</footer>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,21 @@
+{{ partial "header.html" . }}
+
+
+<link rel="stylesheet" href="{{ `css/tags.css` | relURL }}" type="text/css" media="all" />
+
+<h1>Tags</h1>
+
+<ul class="tag-list">
+  {{ range .Data.Terms.Alphabetical }}
+    <li class="tag-items">
+      <a class="tag" href="{{ .Page.RelPermalink }}">
+        {{ .Page.LinkTitle}}
+      </a>
+    </li>
+  {{ else }}
+    <li>目前沒有 Tags</li>
+  {{ end }}
+</ul>
+
+
+{{ partial "footer.html" . }}
