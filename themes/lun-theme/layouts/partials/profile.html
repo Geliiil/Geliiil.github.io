@@ -1,0 +1,28 @@
+
+<link rel="stylesheet" href="{{ `css/profile.css` | relURL }}" type="text/css" media="all" />
+<div class="personal">
+    <a class="avatar-about" href="{{ `about/` | relURL }}"> 
+        <img class="avatar-img" src="{{ .Site.Params.profile.avatar }}" alt="Avatar" width="150">
+    </a>
+    <h1>{{ .Site.Params.profile.name}}</h1>
+    <p>{{ .Site.Params.profile.description}}</p>
+    
+    
+    {{- with .Site.Menus.social -}}
+        <ol class="menu-social">
+            {{ range . }}
+                <li>
+                    <a 
+                        href='{{ .URL }}'
+                        {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
+                        {{ with .Name }}title="{{ . }}"{{ end }}
+                        rel="me"
+                    >
+                        <img class="social-icon"  src="{{ .Params.icon }}" alt="{{ .Name }}" class="social-icon" >
+                    </a>
+                </li>
+            {{ end }}
+        </ol>
+    {{- end -}}
+
+</div>

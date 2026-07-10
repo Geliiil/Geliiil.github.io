@@ -1,0 +1,29 @@
+
+<link rel="stylesheet" href="{{ `css/home_post_list.css` | relURL }}" type="text/css" media="all" />
+
+<div class="post-header">
+    <h2 >Recent Post</h2>
+</div>
+
+{{ range first 5 (sort (where .Site.RegularPages "Type" "posts") "Date" "desc")}}
+<article class="post-snippet">
+    <div class="post-image">
+        <a href="{{ .RelPermalink }}">
+            {{ with .Resources.GetMatch .Params.image }}
+            <img src="{{ .RelPermalink }}" alt="{{ .Title }}" >
+            {{ end }}
+        </a>
+    </div>
+    <div class="post-content">
+        <h4>
+       {{ .Title }}
+        </h4>
+        <time>{{ .Date.Format "January 2, 2006" }}</time>
+        <p>{{ .Summary }}</p>
+        <p>
+            <a href="{{ .RelPermalink }}">Read More</a>
+        </p>
+    </div>
+</article>
+
+{{ end }}

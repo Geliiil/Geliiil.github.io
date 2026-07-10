@@ -1,4 +1,31 @@
 baseURL = 'https://example.org/'
 locale = 'en-us'
-title = 'My New Hugo Project'
+title = 'Geliiil'
 theme = "lun-theme"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about"
+    weight = 20
+
+  [[menu.social]]
+  identifier = "github"
+  name = "GitHub"
+  url = "https://github.com/Geliiil"
+  weight = 1
+  [menu.social.params]
+      icon = "icon/GitHub_Logo.svg" 
+      newTab = true
+
+[params.profile]
+avatar = "/image/IMG_5888.jpg"
+name ="Geliiil"
+description = "Hello, 我是Geliiil"

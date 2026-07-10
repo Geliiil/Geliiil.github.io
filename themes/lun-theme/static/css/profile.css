@@ -1,0 +1,46 @@
+.personal {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.avatar-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, .5);
+    
+}
+
+.avatar-about > img:hover{
+    transform: translate(0px,-5px);
+    transition: all ease-in-out 0.5s;
+}
+
+h1 {
+    font-size: larger;
+}
+
+p {
+    font-size: medium;
+}
+
+
+.menu-social {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    gap: 1rem;                 
+}
+
+.menu-social li {
+    display: flex;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+}

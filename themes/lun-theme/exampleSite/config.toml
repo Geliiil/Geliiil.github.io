@@ -14,3 +14,6 @@ themes = "lun-theme"
     name = "About"
     url = "/about"
     weight = 20
+
+[params]
+  avatar = "assets/IMG_5888.jpg"
