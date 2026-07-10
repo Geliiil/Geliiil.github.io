@@ -30,6 +30,11 @@ theme = "lun-theme"
   [menu.social.params]
       icon = "icon/GitHub_Logo.svg" 
       newTab = true
+  
+  [[menu.sidebar]]
+  [menu.sidebar.params]
+    barOpen = "/icon/barOpen.png"
+    barClose = "/icon/barClose.png"
 
 [params.profile]
 avatar = "/image/IMG_5888.jpg"

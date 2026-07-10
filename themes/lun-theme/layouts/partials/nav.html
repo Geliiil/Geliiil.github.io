@@ -1,14 +1,47 @@
 <header class="site-header">
   <nav class="site-nav">
-    <a class="logo" href="{{ .Site.BaseURL }}">
-      {{ .Site.Title }}
-    </a>
-    <ul class="main-menu">
-      {{ range.Site.Menus.main }}
-      <li>
-        <a href="{{ .URL }}">{{ .Name }}</a>
-      </li>
-      {{ end }}
+    <div class="site-nav-menu" id="site-nav-menu">
+      <a class="logo" href="{{ .Site.BaseURL }}">
+        {{ .Site.Title }}
+      </a>
+      <ul class="main-menu">
+        {{ range.Site.Menus.main }}
+        <li>
+          <a href="{{ .URL }}">{{ .Name }}</a>
+        </li>
+        {{ end }}
+      </ul>
+      <button class="sidebar-toggle" id="sidebar-toggle">
+        <img class="menu-button" id="menu-button" src="{{ `icon/barOpen.png` | relURL }}" alt="baricon" width="20">
+      </button>
+    </div>
+    <ul class="sidebar-main-menu" id="sidebar-main-menu">
+        {{ range.Site.Menus.main }}
+        <li>
+          <a href="{{ .URL }}">{{ .Name }}</a>
+        </li>
+        {{ end }}
     </ul>
   </nav>
 </header>
+
+<script>
+  const toggleBtn = document.getElementById("sidebar-toggle");
+  const sideBar = document.getElementById("sidebar-main-menu");
+  const menu = document.getElementById("site-nav-menu")
+  const buttonIcon = document.getElementById("menu-button")
+
+
+  toggleBtn.addEventListener("click", function(){
+    sideBar.classList.toggle("active");
+    menu.classList.toggle("active")
+   if (sideBar.classList.contains("active")) {
+        buttonIcon.src = "{{ `icon/barClose.png` | relURL }}";
+    } else {
+        buttonIcon.src = "{{ `icon/barOpen.png` | relURL }}";
+    }
+  });
+
+
+
+</script>
