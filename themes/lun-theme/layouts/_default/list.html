@@ -2,11 +2,22 @@
 
 <h1>{{ .Title}}</h1>
 
-<time>{{ .Date.Format "January 2, 2006" }}</time>
-<p>{{ .Summary }}</p>
-<p>
-  <a class="read-more" href="{{ .RelPermalink }}">Read More</a>
-</p>
-  
+{{ range .Pages.ByDate.Reverse }}
+  <article class="post-snippet">
+    <h2>
+      <a href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    </h2>
+
+    <time datetime="{{ .Date.Format "2006-01-02" }}">
+      {{ .Date.Format "January 2, 2006" }}
+    </time>
+
+    <p>{{ .Params.description}}</p>
+  </article>
+{{ else }}
+  <p>這個 Tag 目前沒有文章。</p>
+{{ end }}
 
 {{ partial "footer.html" . }}

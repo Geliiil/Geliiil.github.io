@@ -1,0 +1,70 @@
+.post-meta time{
+    margin: 0;
+    font-size: 0.85rem;
+    color: grey;
+}
+
+.time-and-tags {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    line-height: 1;
+}
+
+.time-and-tags ul{
+    margin: 0;
+}
+
+.post-tags {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: .4rem;
+}
+
+.post-tags li{
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 0.55rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+
+/*content and table*/
+.content-and-table {
+    display: flex;
+    flex-direction: column-reverse;
+    }
+
+.content {
+    font-size: medium;
+}
+
+.table {
+    border: 1px solid black;
+    margin-top: 1rem;
+}
+
+#TableOfContents > ul > li > a{
+    color: black;
+    text-decoration: none;
+    font-size: small;
+}
+
+#TableOfContents > ul > li > a:hover{
+    color: dodgerblue;
+    text-decoration: none;
+    font-size: small;
+}
+
+
+
+@media screen and (max-width: 48rem) {
+  .table {
+    display: none;
+    }
+
+}
