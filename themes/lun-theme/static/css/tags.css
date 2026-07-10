@@ -29,6 +29,7 @@ h1{
 
 .tag:hover{
     background-color: rgb(48, 92, 92);
+    border-color:  rgb(48, 92, 92);
     color: white;
 }
 

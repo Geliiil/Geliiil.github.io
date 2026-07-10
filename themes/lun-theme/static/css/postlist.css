@@ -1,14 +1,3 @@
-.post-header {
-    background-color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, .5);
-    padding: 0;
-}
-
-h2 {
-    margin-bottom: 1rem;
-}
-
-/*LIST*/
 
 .post-meta time{
     margin: 0;
@@ -56,8 +45,9 @@ h2 {
     color:dodgerblue;
 }
 
-p {
+.post-content p{
     margin-bottom: 0;
+    font-size: small;
 }
 
 
@@ -89,13 +79,37 @@ p {
     height: 100%;
     object-fit: cover;
     background-color: grey;
-    filter: grayscale(1);
 }
 
 .post-image img:hover{
-    filter: grayscale(0);
     transform: scale(1.5,1.5);
     transition: all ease-in-out 1s;
+}
+
+.tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tag-item {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #aaa;
+    border-radius: 999px;
+    background: white;
+    cursor: pointer;
+}
+
+.tag-item:hover,
+.tag-item.is-active {
+    color: white;
+    background:  rgb(48, 92, 92);
+    border-color:  rgb(48, 92, 92);
+}
+
+.post-snippet[hidden] {
+    display: none;
 }
 
 @media screen and (max-width: 48rem) {

@@ -1,0 +1,82 @@
+{{ partial "header.html" . }}
+
+<link rel="stylesheet" href="{{ `css/postlist.css` | relURL }}" type="text/css" media="all" />
+
+<h1 >Posts</h1>
+<div class="tag-filter">
+    <button class="tag-item is-active" type="button" data-tag="all">
+        All
+    </button>
+    {{ range .Site.Taxonomies.tags }}
+        <button
+            class="tag-item"
+            type="button"
+            data-tag="{{ .Page.LinkTitle | urlize }}">
+            {{ .Page.LinkTitle }}
+        </button>
+    {{ end }}
+</div>
+{{ range  (sort (where .Site.RegularPages "Type" "posts") "Date" "desc")}}
+
+<article class="post-snippet" data-tags="{{ range .Params.tags }}{{ . | urlize }} {{ end }}">
+    <div class="post-image">
+        <a href="{{ .RelPermalink }}">
+            {{ with .Resources.GetMatch .Params.image }}
+            <img src="{{ .RelPermalink }}" alt="{{ .Title }}" >
+            {{ end }}
+        </a>
+    </div>
+    <div class="post-content">
+        <h4>
+       {{ .Title }}
+        </h4>
+        <div class="time-and-tags">
+            <div class="post-meta">
+                 <time>{{ .Date.Format "January 2, 2006" }}</time>
+            </div>
+            {{ with .Params.tags}}
+            <ul class="post-tags">
+                {{ range .}}
+                <li>{{.}}</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </div>
+        <p>{{ .Summary }}</p>
+        <p>
+            <a class="read-more" href="{{ .RelPermalink }}">Read More</a>
+        </p>
+    </div>
+</article>
+{{ end }}
+
+<script>
+    const filterButton = document.querySelectorAll('.tag-item');
+    const posts = document.querySelectorAll(".post-snippet");
+
+    filterButton.forEach((button) => {
+        button.addEventListener("click", () => {
+            const selectedTag = button.dataset.tag;
+
+            filterButton.forEach((item) => {
+                item.classList.remove("is-active");
+            });
+
+            button.classList.add("is-active");
+
+            posts.forEach((post) => {
+                const tags = post.dataset.tags.split(" ")
+                console.log("selected:", selectedTag);
+                console.log("post tags:", tags);
+
+                post.hidden =
+                    selectedTag !== "all" &&
+                    !tags.includes(selectedTag);
+            });
+        });
+    });
+</script>
+
+{{ partial "footer.html" . }}
+
+

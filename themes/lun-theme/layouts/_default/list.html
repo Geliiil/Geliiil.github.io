@@ -1,23 +1,12 @@
 {{ partial "header.html" . }}
 
-<link rel="stylesheet" href="{{ `css/post_list.css` | relURL }}" type="text/css" media="all" />
+<h1>{{ .Title}}</h1>
 
-<h1>{{ .Title }}</h1>
-
-{{ .Content }}
-
-{{ range.Data.Pages }}
-<article class="post-snippet">
-  <h4>
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-  </h4>
-	<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-		{{ .Date.Format "January 2, 2006" }}
-	</time>
-  <p>
-    {{ .Summary}}
-  </p>
-</article>
-{{ end }}
+<time>{{ .Date.Format "January 2, 2006" }}</time>
+<p>{{ .Summary }}</p>
+<p>
+  <a class="read-more" href="{{ .RelPermalink }}">Read More</a>
+</p>
+  
 
 {{ partial "footer.html" . }}

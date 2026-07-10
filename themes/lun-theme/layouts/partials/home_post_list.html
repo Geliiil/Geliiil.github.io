@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ `css/home_post_list.css` | relURL }}" type="text/css" media="all" />
 
 <div class="post-header">
-    <h2 >Recent Post</h2>
+    <h2 >Recent Posts</h2>
 </div>
 
 {{ range first 5 (sort (where .Site.RegularPages "Type" "posts") "Date" "desc")}}
@@ -18,12 +18,22 @@
         <h4>
        {{ .Title }}
         </h4>
-        <time>{{ .Date.Format "January 2, 2006" }}</time>
+        <div class="time-and-tags">
+            <div class="post-meta">
+                 <time>{{ .Date.Format "January 2, 2006" }}</time>
+            </div>
+            {{ with .Params.tags}}
+            <ul class="post-tags">
+                {{ range .}}
+                <li>{{.}}</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </div>
         <p>{{ .Summary }}</p>
         <p>
             <a class="read-more" href="{{ .RelPermalink }}">Read More</a>
         </p>
     </div>
 </article>
-
 {{ end }}
