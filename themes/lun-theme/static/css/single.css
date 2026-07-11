@@ -60,11 +60,72 @@
     font-size: small;
 }
 
+.center {
+    text-align: center;
+    margin: 2rem auto;
+}
 
+.center img {
+    max-width: 100%;
+    height: auto;
+}
+
+.left {
+    float: left;
+    max-width: 40%;
+    margin: 0 20px 20px 0;
+}
+
+.left img {
+    width: 100%;
+    height: auto;
+}
+
+.right {
+    float: right;
+    max-width: 40%;
+    margin: 0 0 20px 20px;
+}
+
+.right img {
+    width: 100%;
+    height: auto;
+}
 
 @media screen and (max-width: 48rem) {
   .table {
     display: none;
+    }
+    .center {
+    text-align: center;
+    margin: 2rem auto;
+    }
+
+    .center img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .left {
+        float: left;
+        max-width: 40%;
+        margin: 0 20px 20px 0;
+    }
+
+    .left img {
+        width: 100%;
+        height: auto;
+    }
+
+    .right {
+        float: right;
+        max-width: 40%;
+        margin: 0 0 20px 20px;
+    }
+
+    .right img {
+        width: 100%;
+        height: auto;
     }
 
 }
