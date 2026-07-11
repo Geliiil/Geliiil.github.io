@@ -1,4 +1,4 @@
-baseURL = 'https://Geliiil.github.io/'
+baseURL = 'https://geliiil.github.io/'
 locale = 'en-us'
 title = 'Geliiil'
 theme = "lun-theme"
