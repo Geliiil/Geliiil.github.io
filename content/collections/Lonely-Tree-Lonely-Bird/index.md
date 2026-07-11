@@ -4,5 +4,6 @@ draft = false
 title = '樹枝孤鳥'
 singer = '伍佰 and china blue'
 image = "/樹枝孤鳥.jpeg"
+header = '/Lonely_header.jpg'
 types = ["卡帶","黑膠","CD"]
 +++
