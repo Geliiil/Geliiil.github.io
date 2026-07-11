@@ -17,10 +17,16 @@ theme = "lun-theme"
     weight = 20
 
   [[menu.main]]
+    identifier = "collections"
+    name = "Collections"
+    url = "/collections"
+    weight = 30
+
+  [[menu.main]]
     identifier = "tags"
     name = "Tags"
     url = "/tags"
-    weight = 30
+    weight = 40
 
   [[menu.social]]
   identifier = "github"
@@ -30,11 +36,6 @@ theme = "lun-theme"
   [menu.social.params]
       icon = "icon/GitHub_Logo.svg" 
       newTab = true
-  
-  [[menu.sidebar]]
-  [menu.sidebar.params]
-    barOpen = "/icon/barOpen.png"
-    barClose = "/icon/barClose.png"
 
 [params.profile]
 avatar = "/image/IMG_5888.jpg"

@@ -102,7 +102,7 @@ body {
   .sidebar-main-menu.active{
     display: flex;
     flex-direction: column;
-    
+
   }
 
   .sidebar-main-menu li {

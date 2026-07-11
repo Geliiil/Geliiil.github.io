@@ -1,0 +1,113 @@
+{{partial "header.html" .}}
+<link rel="stylesheet" href="{{ `css/collections.css` | relURL }}" type="text/css" media="all" />
+
+<h1>Collections</h1>
+<div class="collections-container">
+    <div class="collections-header">
+        <div class="slider-track" id="track">
+            {{ range (sort (where .Site.RegularPages "Type" "collections") "Date" "desc")}}
+            <div class="album-slide">
+                <div class="album-des">
+                    <p>{{ .Params.singer}}</p>
+                    <p>{{ .Title}}</p>
+                    <time>{{ .Date.Format "2006-01-02" }}</time>
+                </div>
+                <div class="album">
+                    <a href="{{ .RelPermalink }}">
+                        {{ with .Resources.GetMatch .Params.image }}
+                        <img src="{{ .RelPermalink }}" alt="{{ .Title}}" width="300">
+                        {{ end }}
+                    </a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+    <h2>All Collections</h2>
+    <div class="collections-snippet">
+        {{ range (sort (where .Site.RegularPages "Type" "collections") "Date" "desc")}}
+        <article class="collections-card">
+            <div class="album-image">
+                <a href="{{ .RelPermalink }}">
+                    {{ with .Resources.GetMatch .Params.image }}
+                    <img src="{{ .RelPermalink }}" alt="{{ .Title}}" width="200">
+                    {{ end }}
+                </a>
+            </div>
+            <div class="collection-content">
+                <a href="{{ .RelPermalink }}">
+                    <h6>{{ .Title }}</h6>
+                </a>
+                <div class="album-meta">
+                    <time>{{ .Date.Format "2006-01-02" }}</time>
+                </div>
+                {{ with .Params.types}}
+                <ul class="collections-tags">
+                    {{ range . }}
+                    <li>{{.}}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </div>
+        </article>
+        {{ end }}
+    </div>
+
+</div>
+
+
+{{ partial "footer.html" . }}
+
+<script>
+const track = document.getElementById("track");
+const albums = document.querySelectorAll(".album");
+
+let currentIndex = 0 ;
+let autoPlay;
+
+function getAlbumStep(){
+    const album = albums[0]
+    const albumStyle = getComputedStyle(track);
+
+    const gap = parseFloat(albumStyle.gap) || 0;
+    
+    return album.getBoundingClientRect().width + gap;
+}
+
+function getVisibleAlbums() {
+    const windowWidth =
+      document.querySelector(".collections-header").clientWidth;
+
+    return Math.max(
+      1,
+      Math.floor(windowWidth / getAlbumStep())
+    );
+  }
+
+  function updateCarousel() {
+    const step = getAlbumStep();
+
+    track.style.transform =
+      `translateX(-${currentIndex * step}px)`;
+  }
+
+  function nextSlide() {
+    const visibleAlbums = getVisibleAlbums();
+    const maxIndex = Math.max(
+      0,
+      albums.length - visibleAlbums
+    );
+
+    currentIndex++;
+
+    if (currentIndex > maxIndex) {
+      currentIndex = 0;
+    }
+
+    updateCarousel();
+  }
+  function startAutoPlay() {
+    autoPlay = setInterval(nextSlide, 5000);
+  }
+   startAutoPlay();
+</script>

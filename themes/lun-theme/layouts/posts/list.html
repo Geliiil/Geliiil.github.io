@@ -17,7 +17,6 @@
     {{ end }}
 </div>
 {{ range  (sort (where .Site.RegularPages "Type" "posts") "Date" "desc")}}
-
 <article class="post-snippet" data-tags="{{ range .Params.tags }}{{ . | urlize }} {{ end }}">
     <div class="post-image">
         <a href="{{ .RelPermalink }}">
