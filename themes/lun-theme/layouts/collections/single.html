@@ -1,0 +1,34 @@
+{{ partial "header.html" . }}
+
+<link rel="stylesheet" href="{{ `css/album.css` | relURL }}" type="text/css" media="all" />
+
+<div class="album-header">
+    <div class="img-snippet">
+        {{ with .Resources.GetMatch .Params.header }}
+        <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+        {{ end }}
+    </div>
+    <h1>{{ .Title }}</h1>
+    <div class="time-and-tags">
+        <div class="post-meta">
+            <time>{{ .Date.Format "January 2, 2006" }}</time>
+        </div>
+        {{ with .Params.types}}
+        <ul class="post-types">
+            {{ range .}}
+            <li>{{.}}</li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </div>
+</div>
+<div class="content-and-table">
+    <div class="content">
+        {{ .Content}}
+    </div>
+</div>
+
+
+
+
+{{ partial "footer.html" . }}
