@@ -8,7 +8,8 @@
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, .5);
+    border: 1px solid rgba(0, 0, 0);
+    box-shadow: 2px 5px 10px rgb(0, 0, 0, 0.5);
     
 }
 
