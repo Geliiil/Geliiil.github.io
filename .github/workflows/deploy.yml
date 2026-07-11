@@ -1,0 +1,72 @@
+name: Build and deploy Hugo site
+
+on:
+  push:
+    branches:
+      - main   #對應前面 git branch -m main 改好的分支名稱
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.163.3   # 建議跟你本機安裝的 hugo 版本一致，用 `hugo version` 確認
+    steps:
+      - name: Checkout 你的 repo
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive   # ⚠️ 這行非常重要！沒有這行，theme（用 git submodule add 裝的 Ananke）資料夾在 CI 裡會是空的，
+          # build 階段會直接失敗，而且錯誤訊息通常看不出真正原因
+          fetch-depth: 0
+
+      - name: 安裝 Hugo
+        run: |
+          curl -sLO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          mkdir -p "${HOME}/.local/hugo"
+          tar -C "${HOME}/.local/hugo" -xf "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          rm "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          echo "${HOME}/.local/hugo" >> "${GITHUB_PATH}"
+
+      - name: 確認 Hugo 有裝好
+        run: hugo version
+
+      - name: 設定 GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v6
+
+      - name: Build 網站
+        run: |
+          hugo build \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+          # 這一步會把 content/ 編譯成 HTML，輸出到 public/ 資料夾
+          # 注意：這是在 CI 的暫存環境裡執行，不會影響你本機的 public/
+
+      - name: 上傳編譯後的網站（public/）
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./public
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build   # 確保 build 成功才會進到部署這一步
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
