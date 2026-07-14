@@ -8,7 +8,7 @@ description = '簡單介紹Geliiil 網頁'
 +++
 
 # Geliiil網頁基本架構
-{{< figure src="./computer.png" width="600" alt="設計"  class="center" >}}
+{{< figure src="./computer.webp" width="600" alt="設計"  class="center" >}}
 本網頁以Hugo架構所撰寫，並部署在GitHub。
 網頁本身架構我分成以下5個部分：
 1. Home (主頁)
@@ -21,7 +21,7 @@ description = '簡單介紹Geliiil 網頁'
 
 最上面的圖是電腦板會看到的畫面。手機版如下圖。
 
-{{< figure src="./phone.png" width="600" alt="設計"  class="center" >}}
+{{< figure src="./phone.webp" width="600" alt="設計"  class="center" >}}
 
 基本上兩個版本差異不大，只有nav bar有做隱藏，以節省空間。
 

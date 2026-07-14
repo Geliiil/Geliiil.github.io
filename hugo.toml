@@ -38,7 +38,7 @@ theme = "lun-theme"
       newTab = true
 
 [params.profile]
-avatar = "/image/IMG_5888.jpg"
+avatar = "/image/IMG_5888.webp"
 name ="Geliiil"
 description = "Hello, 我是Geliiil"
 
