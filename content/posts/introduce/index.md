@@ -2,7 +2,7 @@
 date = '2026-07-11T18:54:19+08:00'
 draft = false
 title = 'Geliiil 網頁導覽'
-image = '/phone.png'
+image = '/phone.webp'
 tags = ['Introduce','Web']
 description = '簡單介紹Geliiil 網頁'
 +++
