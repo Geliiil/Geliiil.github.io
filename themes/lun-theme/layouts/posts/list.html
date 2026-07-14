@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<link rel="stylesheet" href="{{ `css/postlist.css` | relURL }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ `css/post_list.css` | relURL }}" type="text/css" media="all" />
 
 <h1 >Posts</h1>
 <div class="tag-filter">
@@ -42,9 +42,10 @@
             {{ end }}
         </div>
         <p>{{ .Params.description}}</p>
-        <p>
-            <a class="read-more" href="{{ .RelPermalink }}">Read More</a>
-        </p>
+        <div class="read-more" >
+            <a class="read" href="{{ .RelPermalink }}">Read More</a>
+            <img src="{{ `icon/arrow-right.svg` | relURL }}" alt="arrow" class="arrow" width="25">
+        </div>
     </div>
 </article>
 {{ end }}
