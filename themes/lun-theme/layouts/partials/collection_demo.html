@@ -1,0 +1,15 @@
+
+<link rel="stylesheet" href="{{ `css/demo_part.css` | relURL }}" type="text/css" media="all" />
+<div class="demo-container">
+        {{ range where .Site.RegularPages "Type" "collections" }}
+        {{ $page := . }}
+        {{ $index := . }}
+            <div class="demo demo-{{ $index}}">
+                <a href="{{ $page.RelPermalink }}">
+                    {{ with $page.Resources.GetMatch $page.Params.image }}
+                    <img src="{{ .RelPermalink }}" alt="{{ $page.Title}}" width="200">
+                    {{ end }}
+                </a>
+            </div>
+        {{ end }}
+</div> 

@@ -1,0 +1,65 @@
+<div class="album-image">
+    <img src="{{ `icon/淚橋.webp` | relURL }}" alt="淚橋" class="album" >
+    <img src="{{ `icon/Disc.webp` | relURL }}" alt="disc" class="disc" >
+</div>
+
+<style>
+/*Album*/
+.album-image {
+    position: absolute;
+    z-index: 20;
+    left: -20%;
+    top: 5%;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    
+    transition: all ease-in-out 0.5s;
+}
+
+.album {
+    position: relative;
+    display: block;
+    height:80vh;
+    z-index: 2;
+}
+
+.disc {
+    position:absolute;
+    height:90vh;
+    z-index: 1;
+    top: -5%;
+    left: 5%;
+
+    transition: all ease-out 0.5s;
+}
+
+.album-image:hover {
+    transform: translate(50%, 0);
+
+    transition: all ease-in 0.7s;
+}
+
+.album-image:hover ~ .title {
+  opacity: 0;
+}
+
+@keyframes spin {
+    from {
+    transform:translateX(25%)  rotate(0deg);
+  }
+  to {
+    transform:translateX(25%)  rotate(360deg);
+  } 
+}
+
+.album-image:hover .disc{
+    animation-name: spin;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+
+</style>

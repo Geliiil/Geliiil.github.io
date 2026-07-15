@@ -1,0 +1,270 @@
+
+.container{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/*Title*/
+
+.title {
+    opacity: 1;
+    border: 1px solid black;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    z-index: 10;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    align-content: center;
+    justify-items: center;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title h1{
+    font-family: cursive;
+    color: black;
+    font-weight: 900;
+    font-size: 5rem;
+}
+
+.demo_wrapper {
+    position: relative;
+    z-index:5;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    height: 400px;
+
+}
+
+.demo_wrapper .album {
+    width: 300px;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 10px -2px black;
+    transition: all ease-in-out 0.3s;
+}
+
+
+.album-1 {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   
+   transform: rotate(-10deg);
+}
+
+.title:hover ~ .demo_wrapper .album-1 {
+    transform:
+        translate(0px,50px)
+        rotate(-10deg);
+}
+
+.album-2 {
+   position: absolute;
+   top: 50%;
+   left: 30%;
+
+   transform: rotate(10deg);
+}
+
+.title:hover ~ .demo_wrapper .album-2 {
+    transform:
+        translate(0px,50px)
+        rotate(10deg);
+}
+
+.album-3 {
+   position: absolute;
+   top: 0%;
+   left: 15%;
+
+   transform: rotate(-15deg);
+}
+
+.title:hover ~ .demo_wrapper .album-3 {
+    transform:
+        translate(-50px,-20px)
+        rotate(-10deg);
+}
+
+.album-4 {
+   position: absolute;
+   top: -10%;
+   left: 60%;
+   transform: rotate(40deg);
+}
+
+.title:hover ~ .demo_wrapper .album-4 {
+    transform:
+        translate(10px,-10px)
+        rotate(40deg);
+}
+
+.album-5 {
+   position: absolute;
+   top: 40%;
+   left: 20%;
+
+   transform: rotate(-40deg);
+}
+
+.title:hover ~ .demo_wrapper .album-5 {
+    transform:
+        translate(-50px,10px)
+        rotate(-40deg);
+}
+
+
+.album-6 {
+   position: absolute;
+   top: -15%;
+   left: 30%;
+
+   transform: rotate(-30deg);
+}
+
+.title:hover ~ .demo_wrapper .album-6 {
+    transform:
+        translate(-80px,-20px)
+        rotate(-40deg);
+}
+
+.album-7 {
+   position: absolute;
+   top: -10%;
+   left: 40%;
+
+   transform: rotate(10deg);
+}
+
+.title:hover ~ .demo_wrapper .album-7 {
+    transform:
+        translate(50px,-50px)
+        rotate(10deg);
+}
+
+.album-8 {
+   position: absolute;
+   top: 35%;
+   left: 60%;
+
+   transform: rotate(20deg);
+}
+
+.title:hover ~ .demo_wrapper .album-8 {
+    transform:
+        translate(50px,50px)
+        rotate(-10deg);
+}
+
+
+/*歌詞*/
+
+.wrapper-container {
+    position: absolute;
+    inset: -5% 0 0 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    mask-image: linear-gradient(
+        to right,
+        rgba(0,0,0,0),
+        rgba(0,0,0,1) 20%,
+        rgba(0,0,0,1) 80%,
+        rgba(0,0,0,0)
+    );
+}
+.wrapper {
+    position: relative;
+    height: 8rem;
+    overflow: hidden;
+}
+@keyframes scrollLeft{
+   from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(calc(-170vw - 100%), 0, 0);
+    }
+}
+
+@keyframes scrollRight{
+    from {
+            transform: translate3d(0, 0, 0);
+        }
+
+        to {
+            transform: translate3d(calc(170vw + 100%), 0, 0);
+        }
+}
+
+.wrapper1 .item,
+.wrapper3 .item,
+.wrapper5 .item{
+    left: 100%;
+    animation-name: scrollLeft;
+}
+
+.wrapper2 .item,
+.wrapper4 .item{
+    left: -100%;
+    animation-name: scrollRight;
+}
+
+
+.item {
+    background-color: white;
+    font-size: 5rem;
+    font-weight: bolder;
+    color: grey;
+    position: absolute;
+    width: 170vw;
+    white-space: nowrap;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    will-change: transform;
+}
+
+.item1 {
+    animation-delay: calc( 50s / 4 * (4 - 1) * -1);
+}
+
+.item2 {
+    animation-delay: calc( 50s / 4 * (4 - 2) * -1);
+}
+.item3 {
+    animation-delay: calc( 50s / 4 * (4 - 3) * -1);
+}
+.item4 {
+    animation-delay: calc( 50s / 4 * (4 - 4) * -1);
+}
+
+
+
+@media screen and (max-width: 48rem) {
+    .title h1{
+        font-size: 2rem;
+    }
+    .wrapper {
+        height: 3rem;
+    }
+    .item {
+        font-size: 2rem;
+    }
+    .demo_wrapper .album{
+        opacity: 0;
+    }
+}
